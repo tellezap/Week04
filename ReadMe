@@ -1,0 +1,26 @@
+# Lab 4: Drawing a Scene with Turtle
+
+## Reflection
+
+I am new to coding, so this lab was a good way to see how functions work. I used an AI assistant (Claude) to help me set up my project, understand the code, and fix the bugs. I ran and tested each part myself.
+
+### Generalization
+
+Generalization means writing a function so it can be used in many ways. My `draw_polygon` function takes the number of sides and the length of each side. That means I can use the same function to draw a triangle or a hexagon. I used it to make the triangle eyes on the pumpkin. I also used `draw_pumpkin` three times with different sizes and positions, so I did not have to write the pumpkin code over and over.
+
+### Encapsulation
+
+Encapsulation means putting a bunch of code inside a function and giving it a name. `draw_pumpkin` has a lot of turtle code inside it, but when I use it I only write one line. This made my scene easy to read because it is just a list of function calls like `draw_pumpkin`, `draw_eye`, and `draw_mouth`.
+
+### Fixing Bugs
+
+The pumpkin had a few problems. The stem was at the bottom instead of the top, and the mouth was not lined up. Because the code was inside functions, I only had to fix each problem one time and all three pumpkins were fixed. I also moved the pumpkins lower and made the stars stay above the stems.
+
+### What Was Hard
+
+It was a little confusing when one function called another function, like `draw_eye` calling `draw_polygon`. Testing one function at a time and committing my work after each part helped a lot.
+
+## Files
+
+- `lab04.py`: my turtle code
+- `README.md`: this reflection
