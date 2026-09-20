@@ -93,11 +93,11 @@ def draw_star(t, x, y, size):
     t.end_fill()
 
 
-def draw_sky(t, num_stars):
-    """Draws a starry sky with the given number of stars."""
+def draw_sky(t, num_stars, min_y):
+    """Draws a starry sky with stars no lower than min_y."""
     for _ in range(num_stars):
-        x = random.randint(-300, 300)
-        y = random.randint(0, 300)
+        x = random.randint(-300, 270)
+        y = random.randint(min_y, 280)
         size = random.randint(10, 30)
         draw_star(t, x, y, size)
 
@@ -127,16 +127,34 @@ t.clear()
 # draw_circle(t, 50)
 # draw_polygon(t, 6, 50)  # Hexagon
 
-# Part 2: jack-o-lantern
-draw_pumpkin(t, 0, -100, 100)  # Draw the pumpkin
-draw_eye(t, -40, 0, 30)        # Left eye
-draw_eye(t, 40, 0, 30)         # Right eye
-draw_mouth(t, -50, -50, 100)   # Mouth
+# Part 2 test (commented out)
+# draw_pumpkin(t, 0, -100, 100)
+# draw_eye(t, -40, 0, 30)
+# draw_eye(t, 40, 0, 30)
+# draw_mouth(t, -50, -50, 100)
 
-# Part 3: stars
-draw_star(t, -100, 150, 30)  # Star in the sky
-draw_star(t, 100, 180, 20)
-draw_sky(t, 20)              # Draw 20 random stars
+# Part 3 tests (commented out)
+# draw_star(t, -100, 150, 30)
+# draw_star(t, 100, 180, 20)
+
+# Part 4: three jack-o-lanterns, lowered to rest near the bottom
+draw_pumpkin(t, -150, -270, 100)
+draw_eye(t, -190, -180, 30)    # Left eye
+draw_eye(t, -110, -180, 30)    # Right eye
+draw_mouth(t, -190, -220, 80)  # Mouth
+
+draw_pumpkin(t, 0, -270, 80)
+draw_eye(t, -20, -190, 25)
+draw_eye(t, 20, -190, 25)
+draw_mouth(t, -30, -230, 60)
+
+draw_pumpkin(t, 150, -270, 100)
+draw_eye(t, 110, -180, 30)
+draw_eye(t, 190, -180, 30)
+draw_mouth(t, 110, -220, 80)
+
+# Night sky: stars stay above y = 20 so they can't reach the stems
+draw_sky(t, 30, 20)
 
 # Close the turtle graphics window when clicked (keep this LAST)
 turtle.exitonclick()
