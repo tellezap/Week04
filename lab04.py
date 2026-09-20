@@ -80,6 +80,28 @@ def draw_mouth(t, x, y, width):
     t.end_fill()
 
 
+def draw_star(t, x, y, size):
+    """Draws a star at the given (x, y) position."""
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.fillcolor("white")
+    t.begin_fill()
+    for _ in range(5):
+        t.forward(size)
+        t.right(144)  # 144 degrees is the angle to form a star
+    t.end_fill()
+
+
+def draw_sky(t, num_stars):
+    """Draws a starry sky with the given number of stars."""
+    for _ in range(num_stars):
+        x = random.randint(-300, 300)
+        y = random.randint(0, 300)
+        size = random.randint(10, 30)
+        draw_star(t, x, y, size)
+
+
 # ---------- SETUP ----------
 
 # Create a turtle object
@@ -100,7 +122,7 @@ t.clear()
 
 # ---------- DRAW CALLS ----------
 
-# Part 1 tests (commented out so they don't draw over the pumpkin)
+# Part 1 tests (commented out)
 # draw_square(t, 100)
 # draw_circle(t, 50)
 # draw_polygon(t, 6, 50)  # Hexagon
@@ -110,6 +132,11 @@ draw_pumpkin(t, 0, -100, 100)  # Draw the pumpkin
 draw_eye(t, -40, 0, 30)        # Left eye
 draw_eye(t, 40, 0, 30)         # Right eye
 draw_mouth(t, -50, -50, 100)   # Mouth
+
+# Part 3: stars
+draw_star(t, -100, 150, 30)  # Star in the sky
+draw_star(t, 100, 180, 20)
+draw_sky(t, 20)              # Draw 20 random stars
 
 # Close the turtle graphics window when clicked (keep this LAST)
 turtle.exitonclick()
